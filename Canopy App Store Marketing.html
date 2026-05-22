@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Canopy — App Store Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #15191c; font-family: 'Manrope', system-ui, sans-serif; color: #f4f7f4; }
+  body { min-height: 100vh; }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+<button id="dl-all" style="position:fixed;top:14px;right:14px;z-index:10000;background:#22C55E;color:#0A0F0C;border:none;padding:12px 18px;border-radius:999px;font-family:Manrope,sans-serif;font-weight:700;font-size:14px;letter-spacing:-0.01em;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,0.35);">Download all 6 PNGs (1290×2796)</button>
+<script>
+document.getElementById('dl-all').addEventListener('click', async (e) => {
+  const btn = e.currentTarget;
+  const slots = Array.from(document.querySelectorAll('[data-dc-slot]'));
+  if (!slots.length || !window.dcExport) { alert('Canvas not ready yet — try again in a second.'); return; }
+  btn.disabled = true; btn.style.opacity = 0.6;
+  for (let i = 0; i < slots.length; i++) {
+    const slot = slots[i];
+    const card = slot.querySelector('.dc-card');
+    if (!card) continue;
+    const label = (slot.querySelector('.dc-labeltext') || {}).textContent || ('canopy-' + (i+1));
+    const safe = String(label).replace(/[^\w\s.-]+/g, '_').trim();
+    btn.textContent = 'Exporting ' + (i+1) + ' / ' + slots.length + ' …';
+    await window.dcExport(card, 1290, 2796, 'canopy_' + safe, 'png', { px: 1 });
+    // small spacing so browser doesn't choke multiple downloads
+    await new Promise(r => setTimeout(r, 400));
+  }
+  btn.textContent = 'Done · Download all 6 PNGs (1290×2796)';
+  btn.disabled = false; btn.style.opacity = 1;
+});
+</script>
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="card.jsx"></script>
+<script type="text/babel">
+const W = 1290, H = 2796;
+
+function App() {
+  return (
+    <DesignCanvas title="Canopy — App Store Marketing (iPhone 6.9″ · 1290 × 2796)">
+      <DCSection id="marketing" title="App Store Screenshots" subtitle="Six 1290 × 2796 marketing cards. Click any to focus.">
+        <DCArtboard id="card-1" label="01 · Hero — Never miss a watering" width={W} height={H}>
+          <Card1/>
+        </DCArtboard>
+        <DCArtboard id="card-2" label="02 · Plants library" width={W} height={H}>
+          <Card2/>
+        </DCArtboard>
+        <DCArtboard id="card-3" label="03 · Per-plant schedules" width={W} height={H}>
+          <Card3/>
+        </DCArtboard>
+        <DCArtboard id="card-4" label="04 · Plant database" width={W} height={H}>
+          <Card4/>
+        </DCArtboard>
+        <DCArtboard id="card-5" label="05 · Personalization" width={W} height={H}>
+          <Card5/>
+        </DCArtboard>
+        <DCArtboard id="card-6" label="06 · Add your own" width={W} height={H}>
+          <Card6/>
+        </DCArtboard>
+      </DCSection>
+    </DesignCanvas>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

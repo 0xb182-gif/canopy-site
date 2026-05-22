@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Support — Canopy</title>
+<meta name="description" content="Help and support for Canopy, the plant-care companion app."/>
+<link rel="stylesheet" href="site.css"/>
+<style>
+  .page-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 80px 28px 60px;
+    text-align: center;
+  }
+  .page-hero__inner {
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  .page-hero h1 {
+    font-size: clamp(48px, 7vw, 88px);
+    margin-bottom: 20px;
+  }
+  .page-hero .lead { margin: 0 auto; }
+
+  /* Contact card */
+  .contact-card {
+    max-width: 760px;
+    margin: 56px auto;
+    padding: 40px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(180deg, rgba(34,197,94,0.08), rgba(34,197,94,0.02));
+    text-align: center;
+  }
+  .contact-card h2 {
+    font-size: 36px;
+    margin-bottom: 14px;
+  }
+  .contact-card p { font-size: 17px; margin-bottom: 28px; }
+  .contact-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 22px;
+    background: var(--brand);
+    color: var(--bg);
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+  }
+  .contact-email:hover { opacity: 0.9; }
+
+  /* FAQ */
+  .faq {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .faq h2.section-title {
+    font-size: 36px;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  details.qa {
+    border-bottom: 1px solid var(--line);
+    padding: 22px 4px;
+  }
+  details.qa[open] { padding-bottom: 28px; }
+  details.qa summary {
+    list-style: none;
+    cursor: pointer;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.015em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  details.qa summary::-webkit-details-marker { display: none; }
+  details.qa summary::after {
+    content: '';
+    width: 24px; height: 24px;
+    border-radius: 999px;
+    background: rgba(244, 247, 244, 0.06);
+    border: 1px solid var(--line-strong);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none' stroke='%23F4F7F4' stroke-width='1.8' stroke-linecap='round'><path d='M3 5l3 3 3-3'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform .2s;
+    flex-shrink: 0;
+  }
+  details.qa[open] summary::after { transform: rotate(180deg); }
+  details.qa .answer {
+    margin-top: 14px;
+    color: var(--ink-mute);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  details.qa .answer p { margin: 0 0 12px; color: var(--ink-mute); }
+  details.qa .answer p:last-child { margin-bottom: 0; }
+
+  /* Categories nav */
+  .cats {
+    max-width: 760px;
+    margin: 0 auto 56px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+  .cats a {
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(244, 247, 244, 0.04);
+    border: 1px solid var(--line);
+    color: var(--ink-mute);
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .cats a:hover { color: var(--ink); border-color: var(--line-strong); opacity: 1; }
+  .faq-cat {
+    margin: 64px 0 20px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--brand);
+  }
+  .faq-cat:first-of-type { margin-top: 0; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="brand-lockup">
+      <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+        <path d="M10 54 C 10 28, 30 10, 56 10 C 56 36, 36 54, 10 54 Z" stroke="#22C55E" stroke-width="3.5" fill="none" stroke-linejoin="round"/>
+        <path d="M10 54 C 22 42, 38 26, 56 10" stroke="#22C55E" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+      </svg>
+      Canopy
+    </a>
+    <nav class="nav">
+      <a href="index.html#features">Features</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="support.html" class="is-active">Support</a>
+    </nav>
+    <a href="index.html#download" class="btn-app">Download</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="hero-glow"></div>
+    <div class="page-hero__inner">
+      <div class="eyebrow" style="margin-bottom: 20px;">Support</div>
+      <h1>How can we<br/>help?</h1>
+      <p class="lead">Browse the answers below, or get in touch — a real person will write you back.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding: 20px 28px 40px;">
+
+    <div class="cats">
+      <a href="#getting-started">Getting started</a>
+      <a href="#schedules">Schedules</a>
+      <a href="#plants">Plants & photos</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#troubleshooting">Troubleshooting</a>
+    </div>
+
+    <div class="faq">
+
+      <div class="faq-cat" id="getting-started">Getting started</div>
+
+      <details class="qa" open>
+        <summary>How do I add my first plant?</summary>
+        <div class="answer">
+          <p>Open the <strong>Plants</strong> tab and tap the green <strong>+</strong> button in the top-right. From the New Plant screen you can take a photo, pick from your camera roll, or browse the built-in plant database to start with a sensible default schedule.</p>
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary>What's the built-in plant database?</summary>
+        <div class="answer">
+          <p>An extensive library of common houseplants with default care schedules — watering, misting, fertilizing, and repotting cadence — based on common care guidance. Tap any entry to add it as one of your plants with the schedule pre-filled. You can change any of it after.</p>
+          <p>If a plant isn't there, search for it then tap <strong>Add to database</strong> to define your own entry.</p>
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary>Does Canopy work offline?</summary>
+        <div class="answer">
+          <p>Yes. Canopy is entirely offline. There's no account to make, no server to talk to, no internet connection required.</p>
+        </div>
+      </details>
+
+
+      <div class="faq-cat" id="schedules">Schedules & reminders</div>
+
+      <details class="qa">
+        <summary>How do schedules work?</summary>
+        <div class="answer">
+          <p>Each plant can have its own schedule for watering, misting, fertilizing, and repotting. You set the cadence (every N days) and Canopy tracks when the next one is due. When you complete a task it counts toward your streak for that plant.</p>
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary>Can I get a reminder when something's due?</summary>
+        <div class="answer">
+          <p>Yes. Go to <strong>Settings → Daily Reminder</strong> and enable it. Pick a time you're usually at your sharpest — Canopy will send one summary notification each day with what's due. No nags, no streak guilt.</p>
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary>I forgot to mark a task done — can I backdate it?</summary>
+        <div class="answer">
+          <p>Tap the plant, scroll to the care item, and use the history controls to log a past completion. The streak counter is recalculated based on the dates you log.</p>
+        </div>
+      </details>
+
+
+      <div class="faq-cat" id="plants">Plants & photos</div>
+
+      <details class="qa">
+        <summary>Can I edit a plant after I've added it?</summary>
+        <div class="answer">
+          <p>Yes — open the plant and tap the edit icon (top-right). You can change the name, nickname, species, room, photo, notes, and any of the care tasks.</p>
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary>How do I delete a plant?</summary>
+        <div class="answer">
+          <p>Open the plant, tap edit, and scroll to the bottom — you'll find a <strong>Delete plant</strong> option. This removes the plant, its photo, and its full care history from your device.</p>
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary>Where are my photos stored?</summary>
+        <div class="answer">
+          <p>Only on your iPhone, inside Canopy's app sandbox. They are not uploaded anywhere. If you have iCloud Backup turned on for your device, your photos will be included in that encrypted Apple-managed backup, but never sent to Canopy or any third party.</p>
+        </div>
+      </details>
+
+
+      <div class="faq-cat" id="privacy">Privacy</div>
+
+      <details class="qa">
+        <summary>What data does Canopy collect?</summary>
+        <div class="answer">
+          <p>None. No accounts, no analytics, no telemetry, no advertising IDs. Everything you put into Canopy stays on your iPhone.</p>
+          <p>Full details on the <a href="privacy.html">Privacy Policy</a> page.</p>
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary>Will my data sync between devices?</summary>
+        <div class="answer">
+          <p>Not in the current version. Canopy stores everything locally. If you restore to a new device from an iCloud backup, your Canopy data will come with it as part of the device backup.</p>
+        </div>
+      </details>
+
+
+      <div class="faq-cat" id="troubleshooting">Troubleshooting</div>
+
+      <details class="qa">
+        <summary>My daily reminder isn't arriving.</summary>
+        <div class="answer">
+          <p>Check that notifications are allowed for Canopy: open <strong>iOS Settings → Notifications → Canopy</strong> and ensure "Allow Notifications" is on. Then in Canopy, go to <strong>Settings → Daily Reminder</strong> and confirm it's enabled and set to the time you want.</p>
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary>The app feels slow with lots of plants.</summary>
+        <div class="answer">
+          <p>If you have a very large collection or many high-resolution photos, scrolling can slow down on older devices. We're always working on performance — let us know your device and the rough number of plants and we'll dig in.</p>
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary>I found a bug or want to suggest a feature.</summary>
+        <div class="answer">
+          <p>Please write us — we read every message. Include the iOS version, your iPhone model, and a screenshot if it helps.</p>
+        </div>
+      </details>
+
+    </div>
+
+    <!-- Contact card -->
+    <div class="contact-card">
+      <h2>Still need help?</h2>
+      <p>Email us anything — bug reports, feature ideas, plant emergencies. A real person reads every message.</p>
+      <a class="contact-email" href="mailto:0xB182@gmail.com?subject=Canopy%20Support">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        0xB182@gmail.com
+      </a>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__col" style="max-width: 320px;">
+      <div class="brand-lockup" style="margin-bottom: 14px;">
+        <svg width="24" height="24" viewBox="0 0 64 64" fill="none">
+          <path d="M10 54 C 10 28, 30 10, 56 10 C 56 36, 36 54, 10 54 Z" stroke="#22C55E" stroke-width="3.5" fill="none" stroke-linejoin="round"/>
+          <path d="M10 54 C 22 42, 38 26, 56 10" stroke="#22C55E" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        </svg>
+        Canopy
+      </div>
+      <p style="font-size: 14px; color: var(--ink-faint);">A quiet plant-care companion. Made with care for the people who love their leaves.</p>
+    </div>
+    <div class="site-footer__col">
+      <h4>App</h4>
+      <ul>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#download">Download</a></li>
+      </ul>
+    </div>
+    <div class="site-footer__col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </div>
+    <div class="site-footer__col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:0xB182@gmail.com">0xB182@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__inner site-footer__legal">
+    © 2026 Canopy. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,230 @@
+/* Canopy — shared site styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #0A0F0C;
+  --bg-2: #0F1612;
+  --card: #131A16;
+  --line: rgba(244, 247, 244, 0.08);
+  --line-strong: rgba(244, 247, 244, 0.16);
+  --ink: #F4F7F4;
+  --ink-mute: rgba(244, 247, 244, 0.62);
+  --ink-faint: rgba(244, 247, 244, 0.38);
+  --brand: #22C55E;
+  --brand-soft: #4ADE80;
+  --brand-deep: #16A34A;
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+  --maxw: 1180px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: var(--brand); text-decoration: none; transition: opacity .15s; }
+a:hover { opacity: 0.8; }
+img { max-width: 100%; display: block; }
+
+/* ── Header / nav ─────────────────────────────────── */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  background: rgba(10, 15, 12, 0.72);
+  border-bottom: 1px solid var(--line);
+}
+.site-header__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 21px;
+  letter-spacing: -0.02em;
+}
+.brand-lockup svg { display: block; }
+.nav { display: flex; gap: 32px; align-items: center; }
+.nav a {
+  color: var(--ink-mute);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: -0.005em;
+}
+.nav a:hover { color: var(--ink); opacity: 1; }
+.nav a.is-active { color: var(--ink); }
+.btn-app {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--ink); color: var(--bg);
+  font-weight: 700; font-size: 14px;
+  padding: 10px 16px; border-radius: 999px;
+  border: none; cursor: pointer;
+}
+.btn-app:hover { background: var(--brand); opacity: 1; }
+
+@media (max-width: 720px) {
+  .nav { display: none; }
+}
+
+/* ── Main / sections ──────────────────────────────── */
+main { padding-bottom: 120px; }
+.section { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+.section--pad { padding-top: 96px; padding-bottom: 96px; }
+.section--tight { padding-top: 56px; padding-bottom: 56px; }
+.eyebrow {
+  font-size: 13px; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--brand);
+}
+h1, h2, h3, h4 {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  margin: 0;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(56px, 8.5vw, 112px); letter-spacing: -0.045em; }
+h2 { font-size: clamp(40px, 5.5vw, 64px); }
+h3 { font-size: 28px; letter-spacing: -0.025em; }
+p { margin: 0; color: var(--ink-mute); }
+p.lead { font-size: 22px; line-height: 1.45; color: var(--ink-mute); max-width: 640px; }
+.accent { color: var(--brand); }
+
+/* ── Footer ───────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 56px 28px 80px;
+  background: var(--bg);
+}
+.site-footer__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.site-footer__col h4 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 16px;
+}
+.site-footer__col ul {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.site-footer__col a {
+  color: var(--ink-mute);
+  font-size: 15px;
+}
+.site-footer__col a:hover { color: var(--ink); }
+.site-footer__legal {
+  color: var(--ink-faint);
+  font-size: 13px;
+  margin-top: 32px;
+}
+
+/* ── Pills / chips ────────────────────────────────── */
+.pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  background: rgba(244, 247, 244, 0.03);
+}
+.pill .dot {
+  width: 6px; height: 6px; border-radius: 999px;
+  background: var(--brand);
+  box-shadow: 0 0 12px var(--brand);
+}
+
+/* ── Cards / surfaces ─────────────────────────────── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 28px;
+}
+
+/* ── Buttons ──────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 16px 24px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: transform .15s, opacity .15s, background .15s;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--brand); color: var(--bg); }
+.btn-primary:hover { background: var(--brand-soft); opacity: 1; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line-strong); }
+.btn-ghost:hover { border-color: var(--ink); opacity: 1; }
+
+/* ── Long-form prose (privacy, support) ───────────── */
+.prose {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--ink-mute);
+}
+.prose h2 {
+  font-size: 32px;
+  color: var(--ink);
+  margin-top: 56px;
+  margin-bottom: 16px;
+  letter-spacing: -0.03em;
+}
+.prose h2:first-child { margin-top: 0; }
+.prose h3 {
+  font-size: 20px;
+  color: var(--ink);
+  margin-top: 32px;
+  margin-bottom: 10px;
+}
+.prose p { margin-bottom: 14px; }
+.prose ul { padding-left: 22px; margin: 0 0 14px; }
+.prose li { margin-bottom: 8px; }
+.prose strong { color: var(--ink); font-weight: 600; }
+.prose a { font-weight: 600; }
+
+/* ── Glow background (used on hero) ───────────────── */
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(34, 197, 94, 0.18), transparent 60%),
+    radial-gradient(ellipse 40% 30% at 80% 20%, rgba(34, 197, 94, 0.10), transparent 60%);
+}
